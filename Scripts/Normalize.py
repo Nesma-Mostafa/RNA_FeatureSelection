@@ -1,5 +1,5 @@
 import os
-WorkDir = os.getcwd()+/DataSets
+WorkDir = os.getcwd()+"/DataSets"
 for filename in os.listdir(WorkDir):
 	count=0
 	factor=0
