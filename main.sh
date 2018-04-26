@@ -37,12 +37,6 @@ gunzip *.gz
 #convert text files to fasta files
 python $work_dir/Scripts/ConvertToFasta.py
 
-#Cluster Data to N and T
-cd $work_dir
-mkdir -p $work_dir/N
-mkdir -p $work_dir/T
-python $work_dir/Scripts/ClusterData.py
-
 #catch kmers
 cd $work_dir/DataSet
 for n in *.fasta; do 
@@ -50,3 +44,6 @@ for n in *.fasta; do
 jellyfish count -m 21 -s 100M -t 10 -C  $n;
 jellyfish dump mer_counts.jf > ${n%.*}.fa;
 done
+
+#Normalize Data
+python $work_dir/Scripts/Normalize.py
