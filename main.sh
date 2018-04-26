@@ -1,4 +1,25 @@
 work_dir=$(pwd)
+cd ~/Downloads
+#install tensorFlow
+sudo apt-get install python3-pip python3-dev python-virtualenv
+virtualenv --system-site-packages -p python3  tensorflow
+pip3 install --upgrade tensorflow
+source ~/Downloads/tensorflow/bin/activate 
+
+#install Keras
+cd ~/Downloads
+ virtualenv --system-site-packages -p python3 keras_tf
+ source ~/Downloads/keras_tf
+ pip3 install numpy scipy
+ pip3 install scikit-learn
+ pip3 install pillow
+ pip3 install h5py
+ pip3 install keras
+ 
+#install jellyFish
+cd ~/Downloads
+sudo apt-get update
+sudo apt-get install jellyfish
 
 #Get The Dataset file
 cd $work_dir
