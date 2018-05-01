@@ -21,7 +21,7 @@ cd ~/Downloads
 sudo apt-get update
 sudo apt-get install jellyfish
 
-#Get The Dataset file
+Get The Dataset file
 cd $work_dir
 mkdir -p $work_dir/DataSet
 cd $work_dir/DataSet
@@ -40,9 +40,9 @@ python $work_dir/Scripts/ConvertToFasta.py
 #catch kmers
 cd $work_dir/DataSet
 for n in *.fasta; do 
-#printf '%s\n' "$n";
+printf '%s\n' "$n";
 jellyfish count -m 21 -s 100M -t 10 -C  $n;
-jellyfish dump mer_counts.jf > ${n%.*}.fa;
+jellyfish dump -c mer_counts.jf > ${n%.*}.fa;
 done
 
 #Normalize Data
