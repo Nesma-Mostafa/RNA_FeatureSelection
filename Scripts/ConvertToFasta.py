@@ -1,9 +1,9 @@
 import os
-X = os.getcwd()
-for filename in os.listdir(X):
+work_di = os.getcwd()
+for filename in os.listdir(work_di):
 	c=0
 	if(len(filename.split('.'))==2 and filename.split('.')[1]=="txt"):
-		with open(X+'/'+filename, 'r+') as f:
+		with open(work_di+'/'+filename, 'r+') as f:
 			content = f.read().splitlines()
 			f.seek(0)
 			f.truncate()
@@ -11,4 +11,4 @@ for filename in os.listdir(X):
 				f.write(">SEQ" + str(c) +'\n'+ content[c]+'\n' )
 				c+=1
 			f.close()
-		os.rename(X+'/'+filename, X+'/'+filename.split('.')[0]+".fasta")
+		os.rename(work_di+'/'+filename, work_di+'/'+filename.split('.')[0]+".fasta")
